@@ -1,0 +1,292 @@
+Day-1====
+devops
+ -CI/CD
+ -Improving delievery
+ -Automation
+ -Quality
+ -Monitoring
+ -Testing
+ Devops is a process of improving the application delievery
+    -Automation
+	-Quality
+	-Continues & Monitoring
+	-Continues Testing
+System Admin:-Server(VMware, Openstack,xen)
+BRE-Build, Release Engineer->Deploy
+Server Admin->
+Automation Engineer
+============Day-2======
+Software Development Life Cycle(SDLC)
+Design
+Develop   High Quality
+Test
+
+
+Eg.   E-commerce
+  
+    Planing->Defining->Designing(HLD,LLD)->Building->Testing->Deploy
+	
+	Devops->(Building, Testing, Deploy) phase->Automation
+	
+	
+	Building:
+	    -Developing->common Location->Git(Source Code Repository)
+	Testing:
+	    -Testing, Quality Engineer
+	Deployment: Prod
+===============Day-3=================
+Virtual Machine(VM) part-1
+
+-What is a server?
+-Physical(VS) Virtual
+-Hypervisor
+-How to create VM
+-Real World Example
+
+   Efficiency->Hypervisor->VMware->xen
+   Logical Isolation
+   ->Memory, CPU, Hardware->logical isolation
+=============Day-4============
+Virtual Machine part-2
+
+
+Aws  Azure
+
+VM->EC2
+
+API
+   -AWS EC2
+   -Request
+   -EC2 instatie
+   
+      valid
+	  authenticate
+	  Authorized
+	  
+Script
+ AWS CLI
+ AWS API(Python-Boto3)
+ AWS CFT(Cloud Format Template)
+ Terraform(Advance)(AWS, Azure, Google Cloud)
+ AWS CDK
+ 
+ --
+   What is Virtual Machine->Infrastructure->EC2 is infrastructure
+   
+   Hybrid cloud platform->best teraform
+   Kubertnetes
+   
+ 
+
+
+
+Connect to windows EC2 ->MobaXterm, nomachine
+============Day-5================Z
+item
+
+Mac laptop
+52.66.29.163 public IP
+user: ubuntu
+
+--------Connect to terminal===
+ssh ubuntu@52.66.29.163
+ssh -i(identity) /manoj/user.pem ubuntu@52.66.29.163
+or ssh -i user.pem ubuntu@52.66.66.29.193
+
+
+aws cli interface download
+https://aws.amazon.com/cli/
+for windows
+cmd>aws --version
+-users->security->access key
+aws configure
+enter access key
+enter access password
+default region:ap-south-1
+default file format:json
+#create new s3 bucket;
+aws s3 mb s3://mybucket-test-aws-cli
+aws s3 ls->list s3 bucket
+#Another way to aws api
+
+AWS cloudFormation sample templates
+iaas
+
+
+boto3-aws configuration
+===============Day-6======================
+#linux Operatin System and Basics of Shell scripting
+  -Free
+  -Open Source
+  -Secure
+  -Distribution
+  -Fast
+  -
+    CPU, Memory, IO
+    OS
+	Kernel
+	System Libraries(libc)
+	System Software
+	User process
+	compilers
+	Kernel: Heart of Linux OS which establish connections between HW and Software
+	  -Device Mgt
+	  -Memory Mgt
+	  -Procss mgt
+	  -Handing System call
+#Shell Scripting
+   >bash
+   >psd(present working directory)
+   >cd(change directory)
+   >cd ../..(two directory)
+   ls -ltr(whole detail)
+    touch test.txt
+	vi test.txt(create and edit)
+	:wq!(save the file
+	cata text.txt
+	mkdir(create dir)
+	rm -r testDir
+	free -g(memory of laptop or server)
+	nproc(no of processor)
+	df -h(memory users)
+	top(all details)
+========= Day-7=============
+EC2
+S3
+Lambda
+IAM
+
+ ======
+ create key:AKIAR77ZPEYP23DNJIFH
+ pass:0aM4kmBzIhDPcN6yGuGCExW5e1plNrZs/9awqxuY
+ public ip:13.233.215.73
+ 
+>bash 
+ubuntu
+sudo yum remove awscli
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
+which aws
+ls -l /usr/local/bin/aws
+=============Q. How to track resources user in aws writh shell scripting========
+vim aws_resource_tracker.hs
+escape->insert
+#!/bin/bash
+
+#########################################
+#Author Manoj
+#Date: 11th-Jn
+#Version:v1
+#This script will report the aws resource usage
+###############
+
+# AWS S3
+# AWS EC2
+# AWS Lamda
+# AWS IAM Users
+
+set -x
+#list S3 buckets
+echo "Print list s3 buckets"
+aws s3 ls>resoruceTracker(redirect file)
+
+#List EC2 instances
+echo"Print list ec2 instaces"
+#aws ec2 describe-instances
+aws ec2 describe-instances  | jq '.Reservations[].Instances[].InstanceId'>resourceTracker:q!
+
+#list lambda
+ echo "Print list lamda"
+
+aws lambda list-functions
+
+#list IAM Users
+ "Print list of users"
+
+aws iam list-users
+
+=============
+ctrl+c
+:qa->exit
+:wq!->save and exit
+>chmod 777 aws_resource_tracker.sh
+./aws_resource_tracker.sh->execute
+./aws_resource_tracker.sh->execute | more->get more details
+ 
+ ======================day-8============== 
+ Shell script
+   github integration
+   kubernetes
+   kubectl
+ API or CLI
+ ubuntu:shell-scripting-example:13.232.91.205
+ git token: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
+ ./list-users.sh Manojkr6637 netflix-gpt->execute
+=====================Day-9===============
+git and github
+ CSV->Centralized
+ SVN->Centralized
+ Git->Distributed
+ 
+ git 
+   fork->copy of whole project(interview)
+ SVN/CVN(Linux)
+   ->Down
+   Not communcate each other
+git & gibhub
+  -open source
+  -EC2
+  -Donwload
+  
+github(gitlab/bitbucket)
+  -usuability
+  -commenting
+  -reviewing
+  -project mgt
+  
+  
+>ls -la(hidden files)
+git diff
+git reset --hard hashcode
+cat caluclator.sh
+==============Day-10===========
+git branch
+  main/master
+     feature
+	 
+	 ->Release branch
+	   hot fix branch(Production)
+===============Day-11=====
+git command for devops
+How to create or initialize a git repository
+git init
+ls -a
+ls -ltra
+git add & git commit
+git add && git commit -m "" && git push
+git remot add ""
+ssh-key -t rsa
+vim /home/ubuntu/.ssh/id_rsa
+cd .ssh
+ls
+#Clone vs fork->interview
+
+fork:create copy of repository
+clone:download of repository
+
+rm -rf argo-cd
+git branch -b  division
+git log
+git checkout main
+#git merge, git rebase, git cherry-pick
+git log division or git cherry-pick
+git checkout division && git log
+
+
+
+
+
+
+	   
+	 
