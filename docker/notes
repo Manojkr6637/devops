@@ -1,0 +1,633 @@
+
+
+Docker Lap:
+https://labs.play-with-docker.com/p/d0ql3aq91nsg00btbthg#d0ql3aq9_d0ql3e291nsg00btbti0
+Docker class-Hitesh
+https://www.youtube.com/watch?v=VmdzK2StMcA
+https://www.youtube.com/watch?v=fqMOX6JJhGo&t=714s
+Kuberneters:
+Hitesh
+CICD
+
+docker build -t ogdp2smartcity
+docker run 
+
+=======
+
+change code
+docker build
+compose up
+then reflect
+
+
+=============
+Docker status
+
+
+
+==============Envroment========
+Envroment setup
+
+
+Sunday Mobile Day free
+30 Not  to anything
+==================
+
+docker build  -t  youtube-nodejs .  
+docker run -it -p 8000:8000 youtube-nodejs 
+#set port  or env
+docker run -it -e PORT=4000 -p 4000:4000 youtube-nodejs 
+docker build -t dockerhellotest/youtube-nodejs
+docker login
+docker push dockerhellotest/youtube-nodejs
+
+======docker compose============
+open sourec:cal.com
+docker compose up
+docker compose 
+docker compose down
+docker compose up -d(detach)
+
+===============
+docker run -it --name my_container busybox
+docker run -it bosybox
+docker network create -d youtube
+docker network ls
+docker run -it network=youtube --name tony_stark ubuntu
+docker run -it network=youtube --name dr_starge busybox
+
+
+
+================
+docker pull hello-world
+docker run hello-world
+docker ps
+docker ps -a
+docker stop <container_id>
+docker rm <container_id>
+docker rmi <image_id>
+docker build -t <image_name> .
+#Flush changes and restart Docker
+sudo systemctl daemon-reload
+sudo systemctl restart docker
+
+
+====================piyush================
+
+Docker containerizaation:
+
+container not isolation not self shost not communiater one docker to another directly
+Dell laptop 1:-container 1
+  windows os(ubuntu)
+   Software ms office(images
+   
+
+Dell laptop 2: container2
+  windows os(ubuntu)
+  Software ms office(image)
+  Software Google chrome office(image)
+  
+container->start, stop , destroy
+1000 services -> 1000 containers
+
+  for devs:
+   costume-images-tools(use every developers)
+     ubuntu images
+     mongodb images
+     nginx images
+     Redis
+Docker cli, docker desktop
+
+daemon is thee heart of docker.
+
+docker images
+docker ps
+dockers containers
+docker run -it customs-ubutun-tools:(new contaner open)
+docker container ls(running containers)
+docker container ls -a(all running and stops)
+docker exec images_name ls(ls ) but dicoonected terminal
+
+docker exec -it images ls (connected)
+ctrl+d(disconnected terminal)
+exit(out from terminal)
+docker run -it node
+
+=========Port mapping==========
+
+docker run -it -p (my port)1025:1025(container port) mailhog/mailhog
+container port not expose outside, We must do port mapping
+   want expose(): container port
+   
+   
+expose multiple port
+  -p 8080:8080   -p 8000:8000
+  
+pass enviroment variables in container
+
+  docker run -it -p 3000:3000 -e(enviroment variables) key1=value2 key=value2
+  
+  
+Docker configuration file or main file:
+Docker build -t(tag) image_name .(current directory   )
+
+Docker run -it -e -p 8000:8000 docker_nodejs
+docker run -it -e PORT=4000 -p 4000:4000 docker_nodejs
+docker run -it -e PORT=4000 -p 4000:4000 docker_nodejs
+docker run -it -e PORT=4000 -p 4000:4000 -p 3000:4000  docker-nodejs(Multiple port)
+
+=================Host images or push images==========
+
+First create images
+login:
+https://hub.docker.com/repository/docker/dockerhellotest/docker-nodejs/general
+docker.io/dockerhellotest/docker-nodejs
+
+docker push docker push dockerhellotest/docker-nodejs:tagname
+
+
+====Multi stage for multiple services====
+docker-compose.yml
+
+docker compose up
+docker composer down
+
+docker composer up -d(detach backgroud)
+
+===========part2====
+
+docker run -it --name my_container bosybox
+
+bridge	The default network driver.
+
+docker network inspect bridge
+
+network establish connect my machines and container
+docker network ls
+
+by default three network:bridge(export port), host(my machine network & not expose port) and none(not internet access)
+
+host network , machine network not expose port(directly connect to computer network)
+but bridge inside container must be expose port
+docker run -it --network=host busybox(direct host my my computer network)
+
+docker run -it --network=node busybox(Not access or not iinternet)
+   
+  
+ 
+ 
+ 
+
+
+Drivers
+The following network drivers are available by default, and provide core networking functionality:
+
+Driver	Description
+bridge	The default network driver.
+host	Remove network isolation between the container and the Docker host.
+none	Completely isolate a container from the host and other containers.
+overlay	Overlay networks connect multiple Docker daemons together.
+ipvlan	IPvlan networks provide full control over both IPv4 and IPv6 addressing.
+macvlan	Assign a MAC address to a container.
+
+
+===Create custom network====
+docker network create -d bridge youtube
+docker run -it --network=youtube --name test1 busybox
+docker run -it --network=youtube --name test2 ubuntu
+
+communcate each other & not need ip address
+like internal services
+docker network inspect youtube
+use ip address and name
+
+==Volume==
+Container have memory but when container destroy memory lost or files also
+
+mapping and or backup external worlds:
+
+storing file outside worlds
+docker run -it -v C:\Users\91966\Desktop\docker-backup:/home/abc ubuntu
+
+
+docker volume create my-volume
+docker volume inspect my-volume
+docker volume rm my-volume
+
+==============
+Docker build it will take time order is matter 
+every layer is cached
+
+
+
+
+
+
+
+
+===============AWS ecs== Piyush===
+Docker docker image on elastic containerner service====
+ECR
+ECS
+fargate:
+ servless ways to lauch containers
+ECS with AWS fargete
+ -No need to provission and manage servers
+ -On demand
+ -Only the instructure resources needed to run your containers
+ -pay only for what you can use
+ -easly scales up and down without fixed resoucces defined beforehand
+ Aws fargate pricing? How long, How much capacity?
+ Aws fargate advances:
+   infrastructure manage by aws
+   -containters manager by aws
+
+
+Aws Elastic container registry: Host container images or docker images like code host in git
+
+Elastic container services:
+
+cluster host multiple services(microservices): auth, postgres, myslq, regis,front, backend
+Rolling update
+Health checks
+===========================Chapgpt docker interview questions==============================================================
+Here are some commonly asked Docker interview questions, categorized based on different experience levels.
+
+Beginner-Level Docker Interview Questions
+What is Docker?
+
+Docker is an open-source platform that automates the deployment of applications inside lightweight, portable containers.
+What are Docker containers and images?
+
+A Docker image is a lightweight, stand-alone, executable package that includes everything needed to run a piece of software.
+A Docker container is a runtime instance of a Docker image.
+What are the advantages of using Docker?
+
+Portability across different environments.
+Resource efficiency compared to VMs.
+Faster development and deployment cycles.
+Easy scaling and orchestration.
+What is the difference between Docker and virtual machines (VMs)?
+
+Containers share the host OS kernel, whereas VMs have their own OS.
+Containers are lightweight, while VMs are more resource-intensive.
+Containers start faster compared to VMs.
+How do you install Docker on your local machine?
+
+Installation steps vary for different operating systems (Windows, macOS, Linux). Typically, you download and install Docker Desktop or use package managers like apt or yum.
+What command is used to list running Docker containers?
+
+bash
+Copy
+Edit
+docker ps
+What command is used to list all containers (including stopped ones)?
+
+bash
+Copy
+Edit
+docker ps -a
+How do you build a Docker image?
+
+bash
+Copy
+Edit
+docker build -t my-image .
+-t: Assigns a tag to the image.
+.: Refers to the location of the Dockerfile.
+How do you run a Docker container?
+
+bash
+Copy
+Edit
+docker run -d -p 8080:80 my-image
+-d: Run container in detached mode.
+-p: Map container port to host port.
+How do you stop and remove a running container?
+
+bash
+Copy
+Edit
+docker stop <container_id>
+docker rm <container_id>
+How do you remove an image from Docker?
+
+bash
+Copy
+Edit
+docker rmi <image_id>
+What is the purpose of the Dockerfile?
+
+A Dockerfile is a script that contains a set of instructions to automate the creation of a Docker image.
+Basic structure of a Dockerfile?
+
+dockerfile
+Copy
+Edit
+FROM node:18-alpine
+WORKDIR /app
+COPY . .
+RUN npm install
+CMD ["node", "app.js"]
+Intermediate-Level Docker Interview Questions
+What are Docker volumes, and why are they used?
+
+Volumes provide persistent storage to Docker containers, separate from the container's lifecycle.
+How do you create and mount a volume in Docker?
+
+bash
+Copy
+Edit
+docker volume create my-volume
+docker run -v my-volume:/app/data my-image
+What is the difference between COPY and ADD in a Dockerfile?
+
+COPY: Simply copies files/directories to the container.
+ADD: Can also extract compressed files and download from URLs.
+Explain multi-stage builds in Docker.
+
+Multi-stage builds allow creating lean production images by using multiple FROM statements, reducing final image size.
+What are Docker networks, and what types are available?
+
+Docker networks enable communication between containers. Types:
+Bridge (default for containers on the same host)
+Host (shares host network)
+Overlay (used in Swarm mode)
+None (isolated container)
+How do you inspect a running container's logs?
+
+bash
+Copy
+Edit
+docker logs <container_id>
+How can you access a running container's shell?
+
+bash
+Copy
+Edit
+docker exec -it <container_id> /bin/bash
+What is Docker Compose?
+
+A tool to define and manage multi-container applications using a docker-compose.yml file.
+Basic structure of a docker-compose.yml file?
+
+yaml
+Copy
+Edit
+version: '3.8'
+services:
+  app:
+    image: my-app
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app
+How do you scale services in Docker Compose?
+
+bash
+Copy
+Edit
+docker-compose up --scale app=3
+How do you remove all containers, images, and volumes at once?
+
+bash
+Copy
+Edit
+docker system prune -a
+Advanced-Level Docker Interview Questions
+What is the difference between ENTRYPOINT and CMD in Dockerfile?
+
+ENTRYPOINT: Defines the executable and its arguments.
+CMD: Provides default arguments for the entrypoint.
+What is Docker Swarm?
+
+Docker Swarm is Docker’s built-in orchestration tool to manage multiple nodes (servers).
+How do you initiate a Docker Swarm?
+
+bash
+Copy
+Edit
+docker swarm init --advertise-addr <manager-ip>
+What is Kubernetes, and how does it compare to Docker Swarm?
+
+Kubernetes is an orchestration tool that provides advanced scaling, automation, and management of containers compared to Swarm.
+What is a Docker Registry?
+
+A storage and distribution system for Docker images. Examples: Docker Hub, AWS ECR, GitHub Container Registry.
+How do you push an image to Docker Hub?
+
+bash
+Copy
+Edit
+docker tag my-image myusername/my-image:v1
+docker push myusername/my-image:v1
+How do you check resource usage (CPU, memory) of running containers?
+
+bash
+Copy
+Edit
+docker stats
+How do you limit CPU and memory usage for a container?
+
+bash
+Copy
+Edit
+docker run --memory=512m --cpus=1 my-image
+What is the difference between bind mounts and volumes?
+
+Bind Mounts: Direct mapping of a host directory.
+Volumes: Managed by Docker and stored under /var/lib/docker/volumes.
+What are common security best practices for Docker?
+
+Use minimal base images (e.g., Alpine).
+Set user permissions (avoid root user).
+Use official, trusted images.
+Scan images for vulnerabilities.
+How to handle environment variables in Docker?
+
+bash
+Copy
+Edit
+docker run -e ENV_VAR=value my-image
+How to debug Docker container issues?
+
+Check logs: docker logs <container>
+Enter container: docker exec -it <container> bash
+Inspect events: docker events
+How do you monitor Docker containers in production?
+
+Tools like Prometheus, Grafana, ELK Stack, and Docker Stats.
+What are Docker namespaces and cgroups?
+
+Namespaces: Provide isolation at the kernel level.
+Cgroups: Control resource allocation.
+Explain how you would optimize Docker images.
+
+Use multi-stage builds.
+Minimize layers.
+Avoid unnecessary dependencies.
+Use .dockerignore to exclude unnecessary files.
+What is the purpose of .dockerignore file?
+
+It excludes files and directories from the image build context to reduce image size.
+
+==================
+
+hostname -i
+
+
+===Restart docker network==
+
+
+docker network disconnect bridge serene_pascal
+docker network connect bridge serene_pascal
+
+
+
+ 	 docker exec -it serene_pascal sh
+	 
+
+
+=================== Day-26 ====================
+Muilti stage buildss
+
+distroless container images
+
+- Only Minimal images
+- app file and run time
+- Improver secuity
+- 
+scratch ->distroless image
+
+---Days - 27===
+Docker bind Mounts, Volumes
+
+Container is Emphemeral in nature or short life
+COntainer have not file stystem
+
+Container use CPU, memory, Storage from kernel OS host
+But when container die , automatically release all resources
+
+
+1. Bind mounts: Bbind container file to os file system
+2. Volume(External Host->backup):
+   Volume has life cycle 
+    Mantenanc by Docker cli
+	  Docker create volume, destroy Volume
+	  
+	  
+ Docker volume:
+
+    Syntax:  
+	Docker -v ---
+	docker --mount
+	 Both are same
+docker volume create manoj	 
+docker volume ls
+docker volume inspect manoj
+docker volume rm manoj	 
+docker run -d --mount type=volume,source=manoj,target=/app nginx:latest 
+docker exec -it a96dda2f69a0 /bin/bash
+
+
+=================Docker networking======================
+1. C1 talk to c2 case1
+2. c1 to c2  case 2
+
+
+1.C1 talk to c2 case1
+
+    etho  13.3.33.
+	 c1, add
+                                       by default bridge networking  (veth)
+  
+   dockers
+   ethos: 192.16..3.4
+   host
+  
+
+
+1. Bridge networking(bridge)
+2. Host newtowkring(direct bind to host netwroking)
+  not secure
+    ->secure->distroless ->os ->host
+3. Overlay networking: Multiple host
+
+We can create custom bridge networking
+
+
+
+c1(login)    c2(Logout)  |  c3(payment)
+      |        |         |      virtual bridge
+         veth
+		 
+		 
+172.16.3.4 etho
+
+host		 
+
+ 
+docker run --network
+
+docker run -d --name login nginx:latest
+docker run -d --name logout nginx:latest
+docker run -d --name finance nginx:latest 
+docker exec -it login /bin/bash
+docker network ls
+docker inspect network login
+docker network rm test
+docker network create secure-network
+docker rm container id
+docker stop containe id
+
+docker run -d --name host-demo --network=host nginx:latest
+
+
+
+Real challenge with Docker?
+
+Docker is a sigle daemon process. which can cause a single point of faiure,
+
+Docker Daemon run as a root user.
+
+
+
+=================Docker composer============
+docker composer->tool->Docker INC
+->Manage  multi container application
+
+  ecommerce
+
+Docker init
+dcoker compose up --build  
+	 
+Multi platform:
+uname -a
+#Rname image:
+docker tag a b
+docker builder ls	 
+
+docker buildx build --platform linux/amd64, linux/arm64 -t manojkr6637/app:v1 .
+
+sudo apt install docker-buildx
+docker builder ls
+docker buidx create --name multiarch  --platform linux/amd64, linux/arm64   --driver docker-container --boostrap --use
+
+dokcer builder ls
+docker buildx build --platform linux/arm64,linux/amd64 --push -t multiarcdemo:v3
+
+
+
+==================Docker Model runner===
+
+docker model pull ai/smollm2
+
+
+
+
+===========Docker ===
+Container platform enviroment
+container: light welght computer
+Distroless image: Minimal features requiremnt
+
+	 
